@@ -14,24 +14,42 @@ Original geographic datasets were obtained from LA County GIS (http://egis3.laco
 </ul>
 <h3>Step Two</h3>
 <b>For Buffer and Voronoi Triangulation Data</b>
-<p>QGIS was used to convert LA County shapefiles to well-known text format. The Vector->Research Tools->Random Selection tool was used to randomly select n number of
+<p>QGIS was used to convert LA County shapefiles to well-known text format. The Vector ->Research Tools ->Random Selection tool was then used to randomly select n number of
 features from each datatype because the size in megabytes are all roughly the same (~20MB):
 <ul>
+<b>Datatypes and number of features selected:</b>
 <li><b>Points:</b> 500,000</li>
-<li><b>Polylines:</b 150,000></li>
+<li><b>Polylines:</b> 150,000</li>
 <li><b>Polygons:</b> 45,000</li>
 </ul>
 </p>
 
 <b>For Union Data Data</b>
 <p>ArcGIS was used to select out a smaller subsection of the original buildings polygon shapefile. A new shapefile was created from this along with a duplicate.
-The duplicate shapefile was then offset using ArcGIS by a fraction of a decimal degree, so that there was overlap between the two polygons. QGIS was then used to
-convert the polygons to well-known text.</p>
+The duplicate shapefile was then offset using ArcGIS by a fraction of a decimal degree, so that there was overlap between every polygon in the two shapefiles. QGIS was then used to
+convert the shapefiles to well-known text.</p>
 
 <h3>Step Three</h3>
+<b>(Code above)</b> Python was 
 
 <h3>Step Four</h3>
+<b>(Code above)</b> Python
 
 <h3>Step Five</h3>
+<b>(Code above)</b>  Java JDBC and SQL were used to create the SQLite database and db tables for the final database.
+<ul>
+<b>Tables Created:</b>
+<li>Points: for the wkt points used for buffer and voronoi triangulation.</li>
+<li>Polygons: for the wkt polygons used for buffer.</li>
+<li>Lines: for the wkt lines used for buffer.</li>
+<li>PolygonA: for first set of wkt polygons used for union.</li>
+<li>PolygonB: for second set of wkt polygons used for union.</li>
+<li>Metadata: for information on specific test.</li>
+<li>Results: for all of the timing results of the tests.</li>
+<li>Network: for the network badnwidth and latency tests.</li>
+</ul>
+
+<h3>Step Six</h3>
+<b>(Code above)</b> Java JDBC and SQL were used to populate the SQLite database with WKT in the blob format.
 
 
