@@ -13,6 +13,20 @@ Original geographic datasets were obtained from LA County GIS (http://egis3.laco
 <li><b>Polylines</b> - 2010 LA County Tiger Roads: http://egis3.lacounty.gov/dataportal/wp-content/uploads/2011/04/tigerroads.zip</li>
 </ul>
 <h3>Step Two</h3>
+<b>For Buffer and Voronoi Triangulation Data</b>
+<p>QGIS was used to convert LA County shapefiles to well-known text format. The Vector->Research Tools->Random Selection tool was used to randomly select n number of
+features from each datatype because the size in megabytes are all roughly the same (~20MB):
+<ul>
+<li><b>Points:</b> 500,000</li>
+<li><b>Polylines:</b 150,000></li>
+<li><b>Polygons:</b> 45,000</li>
+</ul>
+</p>
+
+<b>For Union Data Data</b>
+<p>ArcGIS was used to select out a smaller subsection of the original buildings polygon shapefile. A new shapefile was created from this along with a duplicate.
+The duplicate shapefile was then offset using ArcGIS by a fraction of a decimal degree, so that there was overlap between the two polygons. QGIS was then used to
+convert the polygons to well-known text.</p>
 
 <h3>Step Three</h3>
 
