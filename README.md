@@ -13,6 +13,7 @@ Original geographic datasets were obtained from LA County GIS (http://egis3.laco
 <li><b>Polylines</b> - 2010 LA County Tiger Roads: http://egis3.lacounty.gov/dataportal/wp-content/uploads/2011/04/tigerroads.zip</li>
 </ul>
 <h3>Step Two</h3>
+<p>Different data was needed for the different geoprocesses. Points, lines, and polygons were tested with buffer. The same points were tested for Voronoi Triangulation as used for buffer. Union required a new set of test data, in this case two sets of polygon datasets that overlapped.</p>
 <b>For Buffer and Voronoi Triangulation Data</b>
 <p>QGIS was used to convert LA County shapefiles to well-known text format. The Vector ->Research Tools ->Random Selection tool was then used to randomly select n number of
 features from each datatype because the size in megabytes are all roughly the same (~20MB):
@@ -54,6 +55,6 @@ convert the shapefiles to well-known text.</p>
 
 <h3>Step Six</h3>
 <b>(Code above)</b> 
-<p>Java JDBC and SQL were used to populate the SQLite database with WKT in the blob format.</p>
+<p>Java JDBC and SQL were used to populate the SQLite database with WKT in the blob format, pulling in wkt data created in previous steps from file.</p>
 
 
