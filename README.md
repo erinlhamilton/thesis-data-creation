@@ -38,7 +38,8 @@ files of equivalent sizes (in kb) to create outputs of each vertice size.</p>
 
 <h3>Step Four</h3>
 <b>(Code above)</b> 
-<p>Python</p>
+<p>Python was used to accomplish a similar task as the previous step. This time the starting files were points along with the two duplicate polygon files created from previous steps.
+This time the random seed of the code was set to the same, so that the same features from each polygon file were randomly selected. Polygon wkt of various vertice size are created from this.</p>
 
 <h3>Step Five</h3>
 <b>(Code above)</b>  
