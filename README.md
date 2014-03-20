@@ -13,7 +13,7 @@ Original geographic datasets were obtained from LA County GIS (http://egis3.laco
 <li><b>Polylines</b> - 2010 LA County Tiger Roads: http://egis3.lacounty.gov/dataportal/wp-content/uploads/2011/04/tigerroads.zip</li>
 </ul>
 <h3>Step Two</h3>
-<p>Different data was needed for the different geoprocesses. Points, lines, and polygons were tested with buffer. The same points were tested for Voronoi Triangulation as used for buffer. Union required a new set of test data, in this case two sets of polygon datasets that overlapped.</p>
+<p>Separate data were needed for the different geoprocesses. Buffer tested with points, lines, and polygons. The same points used for buffer were tested with Voronoi triangulation. Union required a new set of test data, in this case two sets of polygon datasets that overlapped.</p>
 <b>For Buffer and Voronoi Triangulation Data</b>
 <p>QGIS was used to convert LA County shapefiles to well-known text format. The Vector ->Research Tools ->Random Selection tool was then used to randomly select n number of
 features from each datatype because the size in megabytes are all roughly the same (~20MB):</p>
@@ -26,20 +26,20 @@ features from each datatype because the size in megabytes are all roughly the sa
 
 
 <b>For Union Data Data</b>
-<p>ArcGIS was used to select out a smaller subsection of the original buildings polygon shapefile. A new shapefile was created from this along with a duplicate.
-The duplicate shapefile was then offset using ArcGIS by a fraction of a decimal degree, so that there was overlap between every polygon in the two shapefiles. QGIS was then used to
+<p>ArcGIS was used to select out a smaller subsection of the original buildings polygon shapefile. A new shapefile was created from this along with a duplicate of this new shapefile.
+The duplicate shapefile was then offset using ArcGIS by a fraction of a decimal degree, so that there was overlap between every polygon in the two shapefiles, but they weren't identical in coordinates. QGIS was then used to
 convert the shapefiles to well-known text.</p>
 
 <h3>Step Three</h3>
 <b>(Code above)</b> 
-<p>Python was used to create points, lines, and polygons wkt for the buffer and voronoi tests. The python script started with the original large wkt files created using QGIS in a
-previous step. It first iterated through the points wkt and determined sizes (in KB), based on an array of vertice sizes, and then randomly selected features from the lines and polygon
-files of equivalent sizes (in kb) to create outputs of each vertice size.</p>
+<p>Python was used to create points, lines, and polygons WKT for the buffer and Voronoi tests. The python script started with the original large WKT files created using QGIS in a
+previous step. It first iterated through the points WKT and determined sizes (in KB), based on an array of vertice sizes, and then randomly selected features from the lines and polygon
+files equivalent in sizes (in kb) to create outputs of each vertice size.</p>
 
 <h3>Step Four</h3>
 <b>(Code above)</b> 
 <p>Python was used to accomplish a similar task as the previous step. This time the starting files were points along with the two duplicate polygon files created from previous steps.
-This time the random seed of the code was set to the same, so that the same features from each polygon file were randomly selected. Polygon wkt of various vertice size are created from this.</p>
+This time the random seed of the code was set to be the same for each creation so that the same features from each polygon file were randomly selected. Polygon WKT of increasing size (in vertices) were created.</p>
 
 <h3>Step Five</h3>
 <b>(Code above)</b>  
