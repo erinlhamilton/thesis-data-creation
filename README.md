@@ -1,7 +1,7 @@
 client-vs-server data creation
 ==============================
 
-This is the code and data used to create the final database for client-vs-server. It took several steps to get the final datasets, starting from a shapefile format and ending as well-known text blobs in a SQLite database. 
+This is the code and data used to create the final SQLite database for client-vs-server. It took several steps to get the final datasets, starting from a shapefile format and ending as well-known text blobs in a SQLite database. 
 <br>
 These steps used a combination of ArcGIS, QGIS, Python, JAVA, and SQL.
 
@@ -16,14 +16,14 @@ Original geographic datasets were obtained from LA County GIS (http://egis3.laco
 <p>Different data was needed for the different geoprocesses. Points, lines, and polygons were tested with buffer. The same points were tested for Voronoi Triangulation as used for buffer. Union required a new set of test data, in this case two sets of polygon datasets that overlapped.</p>
 <b>For Buffer and Voronoi Triangulation Data</b>
 <p>QGIS was used to convert LA County shapefiles to well-known text format. The Vector ->Research Tools ->Random Selection tool was then used to randomly select n number of
-features from each datatype because the size in megabytes are all roughly the same (~20MB):
+features from each datatype because the size in megabytes are all roughly the same (~20MB):</p>
 <b>Datatypes and number of features selected:</b>
 <ul>
 <li><b>Points:</b> 500,000</li>
 <li><b>Polylines:</b> 150,000</li>
 <li><b>Polygons:</b> 45,000</li>
 </ul>
-</p>
+
 
 <b>For Union Data Data</b>
 <p>ArcGIS was used to select out a smaller subsection of the original buildings polygon shapefile. A new shapefile was created from this along with a duplicate.
@@ -32,7 +32,9 @@ convert the shapefiles to well-known text.</p>
 
 <h3>Step Three</h3>
 <b>(Code above)</b> 
-<p>Python was </p>
+<p>Python was used to create points, lines, and polygons wkt for the buffer and voronoi tests. The python script started with the original large wkt files created using QGIS in a
+previous step. It first iterated through the points wkt and determined sizes (in KB), based on an array of vertice sizes, and then randomly selected features from the lines and polygon
+files of equivalent sizes (in kb) to create outputs of each vertice size.</p>
 
 <h3>Step Four</h3>
 <b>(Code above)</b> 

@@ -14,7 +14,7 @@ public class InsertWKT {
 	    Statement stmt = null;
 	    try {
 	      Class.forName("org.sqlite.JDBC");
-	      c = DriverManager.getConnection("jdbc:sqlite:path/to/your/database/wktData2.db");
+	      c = DriverManager.getConnection("jdbc:sqlite:path/to/your/database/wktData.db");
 	      c.setAutoCommit(false);
 	      System.out.println("Opened database successfully");
 
